@@ -1,1 +1,11 @@
-<p>search works!</p>
+
+<div class="form-header">
+    <input #userInput type="text" 
+        class="au-input au-input-xl" 
+        placeholder="Search for droducts..." 
+        (keyup.enter)="doSearch(userInput.value)"/>
+
+    <button (click)="doSearch(userInput.value)" class="au-btn-submit">
+        Search
+    </button>
+</div>
