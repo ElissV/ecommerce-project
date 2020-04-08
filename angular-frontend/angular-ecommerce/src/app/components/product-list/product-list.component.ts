@@ -20,6 +20,8 @@ export class ProductListComponent implements OnInit {
   thePageSize: number = 8;
   theTotalElements: number = 0;
 
+  previousKeyword: string = null;
+
   constructor(private productService: ProductService,
               private route:ActivatedRoute) { }
 
@@ -42,6 +44,7 @@ export class ProductListComponent implements OnInit {
 
   handleProductList() {
     const hasCategoryId: boolean = this.route.snapshot.paramMap.has('id');
+
     if (hasCategoryId) {
       this.currentCategoryId = +this.route.snapshot.paramMap.get('id');
     } else {
@@ -59,22 +62,27 @@ export class ProductListComponent implements OnInit {
     this.productService.getProductListPaginate(this.thePageNumber - 1,
                                                this.thePageSize,
                                                this.currentCategoryId)
-                                               .subscribe(this.processPesult());
+                                               .subscribe(this.processResult());
   }
 
 
   handleProductSearch() {
     const theKeyword: string = this.route.snapshot.paramMap.get('keyword');
 
-    this.productService.searchProducts(theKeyword).subscribe(
-      data => {
-        this.products = data;
-      }
-    )
+    if (this.previousKeyword != theKeyword) {
+      this.thePageNumber = 1;
+    }
+
+    this.previousKeyword = theKeyword;
+    console.log(`keyword=${theKeyword}, thePageNumber=${this.thePageNumber}`);
+
+    this.productService.searchProductsPaginate(this.thePageNumber - 1,
+                                                this.thePageSize,
+                                                theKeyword).subscribe(this.processResult());
   }
 
-  
-  processPesult() {
+
+  processResult() {
     return data => {
       this.products = data._embedded.products;
       this.thePageNumber = data.page.number + 1;
