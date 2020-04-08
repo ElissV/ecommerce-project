@@ -17,7 +17,7 @@ export class ProductListComponent implements OnInit {
   searchMode: boolean = false;
 
   thePageNumber: number = 1;
-  thePageSize: number = 10;
+  thePageSize: number = 8;
   theTotalElements: number = 0;
 
   constructor(private productService: ProductService,
@@ -63,6 +63,17 @@ export class ProductListComponent implements OnInit {
   }
 
 
+  handleProductSearch() {
+    const theKeyword: string = this.route.snapshot.paramMap.get('keyword');
+
+    this.productService.searchProducts(theKeyword).subscribe(
+      data => {
+        this.products = data;
+      }
+    )
+  }
+
+  
   processPesult() {
     return data => {
       this.products = data._embedded.products;
@@ -73,14 +84,10 @@ export class ProductListComponent implements OnInit {
   }
 
 
-  handleProductSearch() {
-    const theKeyword: string = this.route.snapshot.paramMap.get('keyword');
-
-    this.productService.searchProducts(theKeyword).subscribe(
-      data => {
-        this.products = data;
-      }
-    )
+  updatePageSize(pageSize: number) {
+    this.thePageSize = pageSize;
+    this.thePageNumber = 1;
+    this.listProducts();
   }
 
 }
