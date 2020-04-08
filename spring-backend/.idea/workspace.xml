@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="30e7d3ad-02d1-44e3-81c1-c97dc0a22e58" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../angular-frontend/angular-ecommerce/src/app/components/product-category-menu/product-category-menu.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../angular-frontend/angular-ecommerce/src/app/components/product-category-menu/product-category-menu.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../angular-frontend/angular-ecommerce/src/app/services/product.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../angular-frontend/angular-ecommerce/src/app/services/product.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ecommerce/dao/ProductRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ecommerce/dao/ProductRepository.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -83,7 +83,8 @@
       <workItem from="1586177720384" duration="600000" />
       <workItem from="1586183110653" duration="1551000" />
       <workItem from="1586254144572" duration="4759000" />
-      <workItem from="1586286315772" duration="3835000" />
+      <workItem from="1586286315772" duration="4437000" />
+      <workItem from="1586334724129" duration="661000" />
     </task>
     <servers />
   </component>
